@@ -43,9 +43,6 @@ group :development, :test do
   gem 'webdrivers'
 end
 
-group :test do
-  gem 'chromedriver-helper'
-end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
