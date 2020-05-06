@@ -1,20 +1,13 @@
 
 class UsersController < ApplicationController
   def show
-    # repo = Faraday.get('https://api.github.com/users/margoflewelling/repos?page=1&per_page=5')
     username = 'margoflewelling'
-    # binding.pry
     conn(username)
 
     @user_repos = get_repos
-
     @user_followers = get_followers
-    # json = JSON.parse(repo.body, symbolize_names: true)
-    # @user_repos = []
-    # json.each do |repo|
-    #             reposit = Repo.new(repo[:name], repo[:html_url])
-    #             @user_repos << reposit
-    #           end
+    @user_following = get_following
+
   end
 
   def new
@@ -47,8 +40,7 @@ class UsersController < ApplicationController
     json = JSON.parse(repos.body, symbolize_names: true)
     @user_repos = []
     json.each do |repo|
-                reposit = Repo.new(repo[:name], repo[:html_url])
-                @user_repos << reposit
+                 @user_repos <<  Repo.new(repo[:name], repo[:html_url])
               end
     @user_repos
   end 
@@ -61,6 +53,16 @@ class UsersController < ApplicationController
                   @user_followers << Follower.new(follower[:login], follower[:html_url])
               end
     @user_followers
+  end 
+
+  def get_following
+    following = @connection.get('following')
+    json = JSON.parse(following.body, symbolize_names: true)
+    @user_following = []
+    json.each do |following|
+                  @user_following << Following.new(following[:login], following[:html_url])
+              end
+    @user_following
   end 
 
   
