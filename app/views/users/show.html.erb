@@ -18,5 +18,12 @@
 <%= link_to "#{repo.name}", "#{repo.url}" %>
 <br>
 <% end %>
+</section>
 
-  </section>
+<section class = "followers">
+<h2>Followers</h2>
+<% @user_followers.each do |follower| %>
+<%= link_to "#{follower.name}", "#{follower.url}" %>
+<br>
+<% end %>
+</section>
