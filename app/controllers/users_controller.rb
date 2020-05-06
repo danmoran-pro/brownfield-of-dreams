@@ -1,13 +1,11 @@
-
 class UsersController < ApplicationController
   def show
     username = 'margoflewelling'
     conn(username)
 
-    @user_repos = get_repos
-    @user_followers = get_followers
-    @user_following = get_following
-
+    @user_repos = grab_repos
+    @user_followers = grab_followers
+    @user_following = grab_following
   end
 
   def new
@@ -33,37 +31,35 @@ class UsersController < ApplicationController
 
   def conn(username)
     @connection = Faraday.new("https://api.github.com/users/#{username}")
-  end 
+  end
 
-  def get_repos
+  def grab_repos
     repos = @connection.get('repos?page=1&per_page=5')
     json = JSON.parse(repos.body, symbolize_names: true)
     @user_repos = []
     json.each do |repo|
-                 @user_repos <<  Repo.new(repo[:name], repo[:html_url])
-              end
+      @user_repos << Repo.new(repo[:name], repo[:html_url])
+    end
     @user_repos
-  end 
+  end
 
-  def get_followers
+  def grab_followers
     followers = @connection.get('followers')
     json = JSON.parse(followers.body, symbolize_names: true)
     @user_followers = []
     json.each do |follower|
-                  @user_followers << Follower.new(follower[:login], follower[:html_url])
-              end
+      @user_followers << Follower.new(follower[:login], follower[:html_url])
+    end
     @user_followers
-  end 
+  end
 
-  def get_following
+  def grab_following
     following = @connection.get('following')
     json = JSON.parse(following.body, symbolize_names: true)
     @user_following = []
-    json.each do |following|
-                  @user_following << Following.new(following[:login], following[:html_url])
-              end
+    json.each do |person|
+      @user_following << Following.new(person[:login], person[:html_url])
+    end
     @user_following
-  end 
-
-  
+  end
 end
