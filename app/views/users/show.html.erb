@@ -11,3 +11,12 @@
     <h1>Bookmarked Segments</h1>
   </section>
 </section>
+
+<section class = "repos">
+<h2>Github</h2>
+<% @user_repos.each do |repo| %>
+<%= link_to "#{repo.name}", "#{repo.url}" %>
+<br>
+<% end %>
+
+  </section>
