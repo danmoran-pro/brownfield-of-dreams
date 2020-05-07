@@ -1,17 +1,11 @@
 class GithubService
-
-  # def initialize(username)
-  #   @username = username
-  # end
-
   def conn
-    Faraday.new("https://api.github.com/user") do |req|
-      req.headers[:Authorization] =  "token 690ecff9406234ee73ecee6f5d574f8b3171d803"
+    Faraday.new('https://api.github.com/user') do |req|
+      req.headers[:Authorization] = 'token 690ecff9406234ee73ecee6f5d574f8b3171d803'
       # require "pry"; binding.pry
-      # req.headers[:Authorization] = ENV["GITHUB_TOKEN"]
+      # req.headers[:Authorization] = "token #{ENV['GITHUB_TOKEN']}"
     end
   end
-
 
   def grab_repos
     repos = conn.get('repos?page=1&per_page=5')
@@ -42,5 +36,4 @@ class GithubService
     end
     user_following
   end
-
 end

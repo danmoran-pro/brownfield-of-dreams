@@ -1,14 +1,9 @@
 class UsersController < ApplicationController
   def show
-    username = 'margoflewelling'
     github = GithubService.new
-    # conn(username)
-
     @user_repos = github.grab_repos
     @user_followers = github.grab_followers
     @user_following = github.grab_following
-
-
   end
 
   def new
@@ -31,6 +26,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :password)
   end
-
-
 end
