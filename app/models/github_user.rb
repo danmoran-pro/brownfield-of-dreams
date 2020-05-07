@@ -1,4 +1,4 @@
-class Following
+class GithubUser
   attr_reader :name, :url
 
   def initialize(name, url)
