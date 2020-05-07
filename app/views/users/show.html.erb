@@ -11,3 +11,27 @@
     <h1>Bookmarked Segments</h1>
   </section>
 </section>
+
+<section class = "repos">
+<h2>Github</h2>
+<% @user_repos.each do |repo| %>
+<%= link_to "#{repo.name}", "#{repo.url}" %>
+<br>
+<% end %>
+</section>
+
+<section class = "followers">
+<h2>Followers</h2>
+<% @user_followers.each do |follower| %>
+<%= link_to "#{follower.name}", "#{follower.url}" %>
+<br>
+<% end %>
+</section>
+
+<section class = "following">
+<h2>Following</h2>
+<% @user_following.each do |following| %>
+<%= link_to "#{following.name}", "#{following.url}" %>
+<br>
+<% end %>
+</section>

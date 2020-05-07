@@ -384,6 +384,7 @@ DEPENDENCIES
   google-api-client
   jbuilder (~> 2.5)
   jquery
+  json
   launchy
   listen (>= 3.0.5, < 3.2)
   omniauth-census!
