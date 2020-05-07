@@ -13,7 +13,7 @@ describe 'A registered user' do
       expect(page).to have_link("b2-mid-mod")
       expect(page).to have_link("backend_module_0_capstone")
       expect(page).to have_link("battleship")
-      expect(page).to have_link("best_animals")
+      expect(page).to have_link("futbol")
     end
   end
 end

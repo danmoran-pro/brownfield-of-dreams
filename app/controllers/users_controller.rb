@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     username = 'margoflewelling'
-    github = GithubService.new(username)
+    github = GithubService.new
     # conn(username)
 
     @user_repos = github.grab_repos
