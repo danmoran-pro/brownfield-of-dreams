@@ -8,8 +8,9 @@ describe 'As an admin' do
     visit "/admin/tutorials/new"
 
     expect(page).to have_link("Import Youtube Playlist")
-    fill_in :Playlist_ID, with: "PLLFBEGPiMBa5vYxUKkRJ1KpcQH4rL6v0m"
-    click_on("Submit")
+    click_on("Import Youtube Playlist")
+    fill_in "tutorial[playlist_id]", with: "PLLFBEGPiMBa5vYxUKkRJ1KpcQH4rL6v0m"
+    click_on("Save")
     expect(current_path).to eq("/admin/dashboard")
     expect(page).to have_content("Successfully created tutorial. View it here.")
     expect(page).to have_link("View it here.")

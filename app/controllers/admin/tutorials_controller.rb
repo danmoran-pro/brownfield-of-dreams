@@ -3,7 +3,17 @@ class Admin::TutorialsController < Admin::BaseController
     @tutorial = Tutorial.find(params[:id])
   end
 
-  def create; end
+  def create
+    playlist_id = params["tutorial"]["playlist_id"]
+    youtube = YoutubeService.new
+    playlist_videos = youtube.playlist_info(playlist_id)
+    tutorial = Tutorial.new
+    playlist_videos.each do |video|
+      tutorial.video.create(video.id)
+    end
+      #add it as a video in that tutorial,tutorial has title description and thumbnail
+
+  end
 
   def new
     @tutorial = Tutorial.new
