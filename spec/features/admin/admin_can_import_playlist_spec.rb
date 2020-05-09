@@ -9,9 +9,13 @@ describe 'As an admin' do
 
     expect(page).to have_link("Import Youtube Playlist")
     click_on("Import Youtube Playlist")
+    fill_in "tutorial[title]", with: "alt J"
+    fill_in "tutorial[description]", with: "An Awesome Wave Album"
+    fill_in "tutorial[thumbnail]", with: "https://upload.wikimedia.org/wikipedia/en/d/d0/Alt-J_-_An_Awesome_Wave.png"
     fill_in "tutorial[playlist_id]", with: "PLLFBEGPiMBa5vYxUKkRJ1KpcQH4rL6v0m"
     click_on("Save")
     expect(current_path).to eq("/admin/dashboard")
+    save_and_open_page
     expect(page).to have_content("Successfully created tutorial. View it here.")
     expect(page).to have_link("View it here.")
     click_on("View it here.")

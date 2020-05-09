@@ -7,8 +7,8 @@ class YoutubeService
   def playlist_info(playlist_id)
     params = {part: 'contentDetails', playlistId: playlist_id, maxResults: 50}
     playlist = get_json('youtube/v3/playlistItems', params)
-    playlist[:items]
-    require "pry"; binding.pry
+    playlist_videos = playlist[:items]
+    playlist_videos
   end
 
   private
