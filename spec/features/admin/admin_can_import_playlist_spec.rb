@@ -15,18 +15,15 @@ describe 'As an admin' do
     fill_in "tutorial[playlist_id]", with: "PLLFBEGPiMBa5vYxUKkRJ1KpcQH4rL6v0m"
     click_on("Save")
     expect(current_path).to eq("/admin/dashboard")
-    save_and_open_page
     expect(page).to have_content("Successfully created tutorial. View it here.")
     expect(page).to have_link("View it here.")
     click_on("View it here.")
-    playlist = Playlist.last
-    expect(current_path).to eq("tutorials/#{playlist.id}")
+    tutorial = Tutorial.last
+    expect(current_path).to eq("/tutorials/#{tutorial.id}")
     within(first('.video')) do
       expect(page).to have_content("Intro")
     end
-    within(second('.video')) do
-      expect(page).to have_content("Interlude")
-    end
+    expect(tutorial.videos.count).to eq(14)
   end
 end
 
