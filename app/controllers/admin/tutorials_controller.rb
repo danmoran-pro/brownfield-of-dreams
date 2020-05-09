@@ -4,21 +4,20 @@ class Admin::TutorialsController < Admin::BaseController
   end
 
   def create
-    playlist_id = params["tutorial"]["playlist_id"]
     youtube = YoutubeService.new
-    playlist_videos = youtube.playlist_info(playlist_id)
-    tutorial = Tutorial.create(get_tutorial_params)
+    playlist_videos = youtube.playlist_info(params['tutorial']['playlist_id'])
+    tutorial = Tutorial.create(grab_tutorial_params)
     playlist_videos.each do |video|
       vid = youtube.video_info(video[:contentDetails][:videoId])
       add_video(vid, tutorial)
     end
-    flash[:success] = "Successfully created tutorial. #{view_context.link_to("View it here.", tutorial_path(tutorial.id))}"
+    link = view_context.link_to('View it here.', tutorial_path(tutorial.id))
+    flash[:success] = "Successfully created tutorial. #{link}"
     redirect_to admin_dashboard_path
-
   end
 
   def add_video(video, tutorial)
-    params = get_video_params(video)
+    params = grab_video_params(video)
     video = tutorial.videos.new(params)
     video.save
   end
@@ -43,20 +42,20 @@ class Admin::TutorialsController < Admin::BaseController
 
   private
 
-  def get_video_params(video)
+  def grab_video_params(video)
     info_hash = video[:items].first[:snippet]
-    vid_params = {title: info_hash[:title],
-                  description: info_hash[:description],
-                  video_id: video[:items].first[:id],
-                  thumbnail: info_hash[:thumbnails][:standard]}
+    vid_params = { title: info_hash[:title],
+                   description: info_hash[:description],
+                   video_id: video[:items].first[:id],
+                   thumbnail: info_hash[:thumbnails][:standard] }
     vid_params
   end
 
-  def get_tutorial_params
-    tutorial_params = {title: params["tutorial"]["title"],
-                       description: params["tutorial"]["description"],
-                       thumbnail: params["tutorial"]["thumbnail"],
-                       playlist_id: params["tutorial"]["playlist_id"]}
+  def grab_tutorial_params
+    { title: params['tutorial']['title'],
+      description: params['tutorial']['description'],
+      thumbnail: params['tutorial']['thumbnail'],
+      playlist_id: params['tutorial']['playlist_id'] }
   end
 
   def tutorial_params
