@@ -1,8 +1,7 @@
 class GithubService
   def conn
-    # replace = 'token afdc97a0c3d1b196d434445ef3bedad1b3662624'
     Faraday.new('https://api.github.com/user') do |req|
-      req.headers[:Authorization] = replace
+      req.headers[:Authorization] = ENV['GITHUB_TOKEN']
     end
   end
 
