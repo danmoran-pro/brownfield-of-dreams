@@ -7,12 +7,13 @@ class Admin::TutorialsController < Admin::BaseController
     youtube = YoutubeService.new
     playlist_videos = youtube.playlist_info(params['tutorial']['playlist_id'])
     tutorial = Tutorial.create(grab_tutorial_params)
-    playlist_videos.each do |video|
-      vid = youtube.video_info(video[:contentDetails][:videoId])
-      add_video(vid, tutorial)
+    if !playlist_videos.nil?
+      playlist_videos.each do |video|
+        vid = youtube.video_info(video[:contentDetails][:videoId])
+        add_video(vid, tutorial)
+      end
     end
-    link = view_context.link_to('View it here.', tutorial_path(tutorial.id))
-    flash[:success] = "Successfully created tutorial. #{link}"
+    tutorial_saved?(tutorial)
     redirect_to admin_dashboard_path
   end
 
@@ -61,4 +62,14 @@ class Admin::TutorialsController < Admin::BaseController
   def tutorial_params
     params.require(:tutorial).permit(:tag_list)
   end
+
+  def tutorial_saved?(tutorial)
+    if tutorial.save
+      link = view_context.link_to('View it here.', tutorial_path(tutorial.id))
+      flash[:success] = "Successfully created tutorial. #{link}"
+    else
+      flash[:error] = "Tutorial not created - #{tutorial.errors.full_messages.to_sentence}"
+    end
+  end
+
 end
