@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   def show
-    github = GithubService.new
-    @user_repos = github.grab_repos
-    @user_followers = github.grab_followers
-    @user_following = github.grab_following
+    if !current_user.github_token.nil?
+      github = GithubService.new(current_user.github_token)
+      @user_repos = github.grab_repos
+      @user_followers = github.grab_followers
+      @user_following = github.grab_following
+    end
   end
 
   def new

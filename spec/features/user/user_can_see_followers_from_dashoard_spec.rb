@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "As a registered user" do
-    it 'can add see their followers on dashboard' do
+    xit 'can add see their followers on dashboard' do
       user = create(:user)
   
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)

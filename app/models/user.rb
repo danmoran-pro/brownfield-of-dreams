@@ -7,4 +7,8 @@ class User < ApplicationRecord
   validates :password, presence: true
   enum role: { default: 0, admin: 1 }
   has_secure_password
+  validates :uid, presence: false
+  validates :github_token, presence: false
+  validates :username, presence: false
+  validates :provider, presence: false
 end
