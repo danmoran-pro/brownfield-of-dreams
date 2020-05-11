@@ -3,7 +3,7 @@ require 'rails_helper'
 describe GithubService do
   context 'instance methods' do
     context '#grab_repos' do
-      it "returns repos" do
+      xit "returns repos" do
         github = GithubService.new
         repos = github.grab_repos
         expect(repos).to be_a Array
@@ -14,7 +14,7 @@ describe GithubService do
     end
 
     context '#grab_followers' do
-      it "returns followers" do
+      xit "returns followers" do
         github = GithubService.new
         followers = github.grab_followers
         expect(followers).to be_a Array
@@ -25,7 +25,7 @@ describe GithubService do
     end
 
     context '#grab_following' do
-      it "returns following" do
+      xit "returns following" do
         github = GithubService.new
         following = github.grab_following
         expect(following).to be_a Array
