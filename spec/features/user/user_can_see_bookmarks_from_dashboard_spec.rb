@@ -11,25 +11,26 @@ describe "As a registered user" do
       video2 = create(:video, tutorial_id: tutorial1.id)
       video3 = create(:video, tutorial_id: tutorial2.id)
       video4 = create(:video, tutorial_id: tutorial2.id)
-      bookmark1 = UserVideo.new(user.id, video2.id)
-      bookmark2 = UserVideo.new(user.id, video1.id)
-      bookmark3 = UserVideo.new(user.id, video4.id)
+      bookmark1 = UserVideo.new({user_id: user.id, video_id: video2.id})
+      bookmark1.save
+      bookmark2 = UserVideo.new({user_id: user.id, video_id: video1.id})
+      bookmark2.save
+      bookmark3 = UserVideo.new({user_id: user.id, video_id: video4.id})
+      bookmark3.save
 
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit '/dashboard'
-      expect(page).to have_content("Bookmarked videos")
+      expect(page).to have_content("Bookmarked Segments")
 
-      within(".#{tutorial1.name}") do
+      within(first(".tutorial"))do
         within(first(".video")) do
-          expect(page).to have_content(video2.name)
+          expect(page).to have_content(video2.title)
         end
-        expect(page).to have_content(video1.name)
+        expect(page).to have_content(video1.title)
       end
-      within (".#{tutorial2.name}") do
-        expect(page).to have_content(video4.id)
-      end
+      expect(page).to have_content(video4.title)
 
   end
 end

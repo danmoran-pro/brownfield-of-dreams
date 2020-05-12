@@ -6,6 +6,21 @@ class UsersController < ApplicationController
       @user_followers = github.grab_followers
       @user_following = github.grab_following
     end
+    @organized_bookmarks = organize_bookmarks
+  end
+
+  def organize_bookmarks
+    organized = Hash.new
+    current_user.user_videos.each do |user_vid|
+      vid = Video.find(user_vid[:video_id])
+      tutorial = Tutorial.find(vid[:tutorial_id])
+      if organized.has_key?(tutorial)
+        organized[tutorial] << vid
+      else
+         organized[tutorial] = [vid]
+      end
+    end
+    organized
   end
 
   def new
