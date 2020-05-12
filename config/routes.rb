@@ -36,11 +36,10 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#show'
   get '/about', to: 'about#show'
   get '/get_started', to: 'get_started#show'
-
-  # Is this being used?
   get '/video', to: 'video#show'
 
-  resources :users, only: [:new, :create, :update, :edit]
+  get '/users/:id', to: 'users#update'
+  resources :users, only: [:new, :create, :edit]
 
   resources :tutorials, only: [:show, :index] do
     resources :videos, only: [:show, :index]

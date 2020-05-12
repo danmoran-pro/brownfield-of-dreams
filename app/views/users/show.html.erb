@@ -1,5 +1,12 @@
 <section class="dashboard-main">
   <h1> <%= current_user.first_name %>'s Dashboard </h1>
+
+    <% if current_user.activated? %>
+    <p>Status: Active</p>
+    <% else %>
+    <p>Status: Inactive, check your email</p>
+    <% end %>
+
   <p><%= button_to  "Connect to GitHub", github_login_path %></p>
 
 
