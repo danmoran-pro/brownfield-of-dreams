@@ -19,7 +19,7 @@
   <div class="title-bookmark">
     <h3><%= @facade.current_video.title %></h3>
     <div class="bookmarks-btn">
-      <%= button_to "Bookmark", user_videos_path, params: {video_id: @facade.current_video.id, user_id: @facade.user_id}, method: :post, class: "btn btn-outline mb1 teal" %>
+      <%= button_to "Bookmark", user_videos_path, params: {video_id: @facade.current_video.id}, method: :post, class: "btn btn-outline mb1 teal" %>
     </div>
   </div>
 
