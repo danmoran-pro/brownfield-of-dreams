@@ -2,7 +2,19 @@ require 'rails_helper'
 
 describe 'As an admin' do
   it 'can add an entire youtube playlist' do
+    json_response_repos = File.read('spec/fixtures/youtube_playlist.json')
+
+    stub_request(:get, "https://www.googleapis.com/youtube/v3/playlistItems?&maxResults=50&part=contentDetails&playlistId=PLLFBEGPiMBa5vYxUKkRJ1KpcQH4rL6v0m").
+    with(
+      headers: {
+      'Accept'=>'*/*',
+      'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+      'User-Agent'=>'Faraday v1.0.1'
+      }).
+    to_return(status: 200, body: "json_response_repos", headers: {})
+
     admin = create(:user, role: 1)
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit "/admin/tutorials/new"
