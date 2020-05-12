@@ -1,7 +1,9 @@
 class TutorialFacade < SimpleDelegator
-  def initialize(tutorial, video_id = nil)
+  attr_reader :user_id
+  def initialize(tutorial, video_id = nil, user_id = nil)
     super(tutorial)
     @video_id = video_id
+    @user_id = user_id
   end
 
   def current_video

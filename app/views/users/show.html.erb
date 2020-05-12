@@ -1,5 +1,7 @@
 <section class="dashboard-main">
   <h1> <%= current_user.first_name %>'s Dashboard </h1>
+  <p><%= button_to  "Connect to GitHub", github_login_path %></p>
+
 
   <%= button_to 'Log Out', logout_path, method: 'delete', class: "btn btn-primary mb1 bg-teal" %>
   <h3>Account Details</h3>
@@ -10,28 +12,38 @@
   <section>
     <h1>Bookmarked Segments</h1>
   </section>
-</section>
 
-<section class = "repos">
-<h2>Github</h2>
-<% @user_repos.each do |repo| %>
-<%= link_to "#{repo.name}", "#{repo.url}" %>
-<br>
+<% if current_user.github_token %>
+  <% if !@user_repos.nil?  %>
+    <section class = "repos">
+    <h2>Repos</h2>
+    <% @user_repos.each do |repo| %>
+    <%= link_to "#{repo.name}", "#{repo.url}" %>
+    <br>
+    <% end %>
+    </section>
+  <% end %>
+
+  <% if @user_followers != nil %>
+    <section class = "followers">
+    <h2>Followers</h2>
+    <% @user_followers.each do |follower| %>
+    <%= link_to "#{follower.name}", "#{follower.url}" %>
+    <br>
+    <% end %>
+  </section>
+  <% end %>
+ 
+  <% if @user_following != nil %>
+    <section class = "following">
+    <h2>Following</h2>
+    <% @user_following.each do |following| %>
+    <%= link_to "#{following.name}", "#{following.url}" %>
+    <br>
+    <% end %>
+    </section>
+  <% end %>
+
 <% end %>
 </section>
 
-<section class = "followers">
-<h2>Followers</h2>
-<% @user_followers.each do |follower| %>
-<%= link_to "#{follower.name}", "#{follower.url}" %>
-<br>
-<% end %>
-</section>
-
-<section class = "following">
-<h2>Following</h2>
-<% @user_following.each do |following| %>
-<%= link_to "#{following.name}", "#{following.url}" %>
-<br>
-<% end %>
-</section>

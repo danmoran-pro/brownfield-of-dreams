@@ -1,0 +1,256 @@
+{
+  "kind": "youtube#playlistItemListResponse",
+  "etag": "qr3_gvwqZR6PZGlphGi4IiR2GG8",
+  "nextPageToken": "CAUQAA",
+  "items": [
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "k9e4pISak01tF_zptgE3WHohPiw",
+      "id": "UExMRkJFR1BpTUJhNXZZeFVLa1JKMUtwY1FINHJMNnYwbS41QTY1Q0UxMTVCODczNThE",
+      "snippet": {
+        "publishedAt": "2017-02-05T18:15:08Z",
+        "channelId": "UCXhwRMBEIE67WfdAVYceb0g",
+        "title": "Alt j - Intro [An Awesome Wave]",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Laq9dsj21gg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Laq9dsj21gg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Laq9dsj21gg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Laq9dsj21gg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Laq9dsj21gg/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "RFager",
+        "playlistId": "PLLFBEGPiMBa5vYxUKkRJ1KpcQH4rL6v0m",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "Laq9dsj21gg"
+        }
+      },
+      "contentDetails": {
+        "videoId": "Laq9dsj21gg",
+        "videoPublishedAt": "2016-10-09T16:29:30Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "nCol74z-7lqaatmco0Md-hUNcI4",
+      "id": "UExMRkJFR1BpTUJhNXZZeFVLa1JKMUtwY1FINHJMNnYwbS4yMUQyQTQzMjRDNzMyQTMy",
+      "snippet": {
+        "publishedAt": "2017-02-05T18:15:41Z",
+        "channelId": "UCXhwRMBEIE67WfdAVYceb0g",
+        "title": "Alt-J (∆) - Interlude I (Lyrics)",
+        "description": "\"Interlude 1 talks about a young woman who dreams desperately of a carefree life - with no hiccups, trauma or obstacles. She prays to only ever be happy and hidden from worry and her cries are answered by barking dogs.\" - alt-J on Soundcloud \nEnjoy :)\n\nAn Awesome Wave: https://itunes.apple.com/de/album/an-awesome-wave/id520968891?uo=4\nThis Is All Yours: https://itunes.apple.com/de/album/this-is-all-yours/id886683838?uo=4\n\nLyrics:\n\nShe only ever walks to count her steps\nEighteen strides and she stops to abide\nBy the law that she herself has set\nThat eighteen steps is one complete set\n\nAnd before the next\nNine right and nine left\nShe looks up at the blue\nAnd whispers to all of the above\n\nDon't let me drown, don't breath alone\nNo kicks no pangs no broken bones\nNever let me sink, always feel at home\nNo sticks, no shanks and no stones\n\nNever leave it too late, always enjoy the taste\nOf the great gray world of hearts\nAs all dogs everywhere bark, it's worth knowing\nLike all good fruit the balance of life is in the ripe and ruin",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/8VO-mbf9-Vw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/8VO-mbf9-Vw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/8VO-mbf9-Vw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/8VO-mbf9-Vw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/8VO-mbf9-Vw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "RFager",
+        "playlistId": "PLLFBEGPiMBa5vYxUKkRJ1KpcQH4rL6v0m",
+        "position": 1,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "8VO-mbf9-Vw"
+        }
+      },
+      "contentDetails": {
+        "videoId": "8VO-mbf9-Vw",
+        "videoPublishedAt": "2014-06-27T17:42:47Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "JirNc8reJZC6UiTU-7IBqYA_Erc",
+      "id": "UExMRkJFR1BpTUJhNXZZeFVLa1JKMUtwY1FINHJMNnYwbS4wMTcyMDhGQUE4NTIzM0Y5",
+      "snippet": {
+        "publishedAt": "2013-05-23T20:04:23Z",
+        "channelId": "UCXhwRMBEIE67WfdAVYceb0g",
+        "title": "alt-J - Tessellate [OFFICIAL VIDEO]",
+        "description": "alt-J's debut album, An Awesome Wave, is available now on iTunes: http://smarturl.it/AnAwesomeWave\r\n\r\nFor more of alt-J check out:\r\nhttp://www.altjband.com\r\nhttp://www.facebook.com/altj.band\r\nhttps://twitter.com/alt_J\r\n\r\nDirected by Alex Southam",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Qg6BwvDcANg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Qg6BwvDcANg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Qg6BwvDcANg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Qg6BwvDcANg/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Qg6BwvDcANg/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "RFager",
+        "playlistId": "PLLFBEGPiMBa5vYxUKkRJ1KpcQH4rL6v0m",
+        "position": 2,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "Qg6BwvDcANg"
+        }
+      },
+      "contentDetails": {
+        "videoId": "Qg6BwvDcANg",
+        "videoPublishedAt": "2012-07-09T11:49:27Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "BSObzQ1OlZ4rlxyNB29dpFMZV7o",
+      "id": "UExMRkJFR1BpTUJhNXZZeFVLa1JKMUtwY1FINHJMNnYwbS41MjE1MkI0OTQ2QzJGNzNG",
+      "snippet": {
+        "publishedAt": "2013-05-23T20:04:40Z",
+        "channelId": "UCXhwRMBEIE67WfdAVYceb0g",
+        "title": "alt-J (∆) Breezeblocks",
+        "description": "Directed by Ellis Bahl. Get debut album 'An Awesome Wave' here: http://smarturl.it/AnAwesomeWave (digital) http://smarturl.it/AAWCD (physical).\r\n\r\nFor more of alt-J check out:\r\nhttp://www.altjband.com\r\nhttp://www.facebook.com/altj.band\r\nhttps://twitter.com/alt_J\r\nOut in the US via Canvasback Music on September 18",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/rVeMiVU77wo/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/rVeMiVU77wo/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/rVeMiVU77wo/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/rVeMiVU77wo/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/rVeMiVU77wo/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "RFager",
+        "playlistId": "PLLFBEGPiMBa5vYxUKkRJ1KpcQH4rL6v0m",
+        "position": 3,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "rVeMiVU77wo"
+        }
+      },
+      "contentDetails": {
+        "videoId": "rVeMiVU77wo",
+        "videoPublishedAt": "2012-03-23T16:52:36Z"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "OKVOhj0Ksgp8Qme7wzhk9iDLcMI",
+      "id": "UExMRkJFR1BpTUJhNXZZeFVLa1JKMUtwY1FINHJMNnYwbS45RTgxNDRBMzUwRjQ0MDhC",
+      "snippet": {
+        "publishedAt": "2017-02-05T18:17:38Z",
+        "channelId": "UCXhwRMBEIE67WfdAVYceb0g",
+        "title": "Alt-J (Δ) . Interlude 2 (video)",
+        "description": "A fan video\n\nShort and sunny.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/X6UHaoXtQzA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/X6UHaoXtQzA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/X6UHaoXtQzA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/X6UHaoXtQzA/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/X6UHaoXtQzA/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "RFager",
+        "playlistId": "PLLFBEGPiMBa5vYxUKkRJ1KpcQH4rL6v0m",
+        "position": 4,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "X6UHaoXtQzA"
+        }
+      },
+      "contentDetails": {
+        "videoId": "X6UHaoXtQzA",
+        "videoPublishedAt": "2013-02-04T02:00:45Z"
+      }
+    }
+  ],
+  "pageInfo": {
+    "totalResults": 14,
+    "resultsPerPage": 5
+  }
+}

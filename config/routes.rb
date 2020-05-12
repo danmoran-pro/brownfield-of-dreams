@@ -10,8 +10,13 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'welcome#index', as: :tag
   get '/register', to: 'users#new'
 
+  get '/auth/github', as: 'github_login'
+  get "/auth/github/callback" => "sessions#update"
+  # get "/signout" => "sessions#destroy", :as => :signout
+
   namespace :admin do
     get "/dashboard", to: "dashboard#show"
+    get "/import_playlist", to: "import#new"
     resources :tutorials, only: [:create, :edit, :update, :destroy, :new] do
       resources :videos, only: [:create]
     end

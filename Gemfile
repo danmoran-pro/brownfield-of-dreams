@@ -27,7 +27,7 @@ gem 'omniauth-google-oauth2'
 gem 'will_paginate'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'omniauth-census', git: "https://github.com/turingschool-projects/omniauth-census"
-
+gem "omniauth-github", '1.1.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -44,6 +44,9 @@ group :development, :test do
   gem 'webdrivers'
 end
 
+group :test do
+  gem 'webmock'
+end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
