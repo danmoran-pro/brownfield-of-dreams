@@ -27,14 +27,13 @@ class UsersController < ApplicationController
   private
 
   def organize_bookmarks
-    organized = Hash.new
+    organized = {}
     current_user.user_videos.each do |user_vid|
       vid = Video.find(user_vid[:video_id])
-      tutorial = vid.tutorial
-      if organized.has_key?(tutorial)
-        organized[tutorial] << vid
+      if organized.key?(vid.tutorial)
+        organized[vid.tutorial] << vid
       else
-         organized[tutorial] = [vid]
+        organized[vid.tutorial] = [vid]
       end
     end
     organized

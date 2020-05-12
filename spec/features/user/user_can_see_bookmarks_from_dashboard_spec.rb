@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe "As a registered user" do
+
     it 'can add see bookmarked videos on dashboard' do
 
-      user = create(:user, github_token:  ENV['GITHUB_TOKEN'])
+      user = create(:user)
       tutorial1 = create(:tutorial)
       tutorial2 = create(:tutorial)
 
