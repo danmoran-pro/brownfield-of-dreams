@@ -9,20 +9,6 @@ class UsersController < ApplicationController
     @organized_bookmarks = organize_bookmarks
   end
 
-  def organize_bookmarks
-    organized = Hash.new
-    current_user.user_videos.each do |user_vid|
-      vid = Video.find(user_vid[:video_id])
-      tutorial = Tutorial.find(vid[:tutorial_id])
-      if organized.has_key?(tutorial)
-        organized[tutorial] << vid
-      else
-         organized[tutorial] = [vid]
-      end
-    end
-    organized
-  end
-
   def new
     @user = User.new
   end
@@ -39,6 +25,20 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def organize_bookmarks
+    organized = Hash.new
+    current_user.user_videos.each do |user_vid|
+      vid = Video.find(user_vid[:video_id])
+      tutorial = vid.tutorial
+      if organized.has_key?(tutorial)
+        organized[tutorial] << vid
+      else
+         organized[tutorial] = [vid]
+      end
+    end
+    organized
+  end
 
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :password)
