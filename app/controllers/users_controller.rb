@@ -6,6 +6,7 @@ class UsersController < ApplicationController
       @user_followers = github.grab_followers
       @user_following = github.grab_following
     end
+    @organized_bookmarks = organize_bookmarks
   end
 
   def new
@@ -24,6 +25,19 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def organize_bookmarks
+    organized = {}
+    current_user.user_videos.each do |user_vid|
+      vid = Video.find(user_vid[:video_id])
+      if organized.key?(vid.tutorial)
+        organized[vid.tutorial] << vid
+      else
+        organized[vid.tutorial] = [vid]
+      end
+    end
+    organized
+  end
 
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :password)

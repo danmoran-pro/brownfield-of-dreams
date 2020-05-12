@@ -9,9 +9,20 @@
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
     <li> <%= current_user.email%> </li>
   </ul>
-  <section>
+  <section class = "bookmarked">
     <h1>Bookmarked Segments</h1>
+    <% @organized_bookmarks.each do |tutorial, videos| %>
+    <section class = "tutorial">
+      <h3>From tutorial - <%= tutorial.title %>: </h3>
+        <% videos.each do |video| %>
+        <div class = "video">
+            <p><%=video.title %> </p>
+        </div>
+        <% end %>
+      </section>
+    <% end %>
   </section>
+
 
 <% if current_user.github_token %>
   <% if !@user_repos.nil?  %>
@@ -33,7 +44,7 @@
     <% end %>
   </section>
   <% end %>
- 
+
   <% if @user_following != nil %>
     <section class = "following">
     <h2>Following</h2>
@@ -46,4 +57,3 @@
 
 <% end %>
 </section>
-
