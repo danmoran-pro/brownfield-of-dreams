@@ -1,16 +1,18 @@
 <main class="tutorials">
+
 <h2><%= @facade.title %></h2>
 <h1 id="message"></h1>
 <div class="col col-4">
   <h4>Videos</h4>
-  <% if @facade.videos != [] %>
+  <% if @videos != [] %>
     <ul>
-    <% @facade.videos.each do |video| %>
+    <% @videos.each do |video| %>
       <li class = "video">
         <h3><%= link_to video.title, tutorial_path(video_id: video.id), class: "show-link", id: video.position %></h3>
       </li>
     </ul>
     <% end %>
+    <%= will_paginate @videos %> <br/>
 </div>
 
 <div class="col col-8">
@@ -68,6 +70,7 @@
 </div>
 <% else %>
  <h3>No videos for this tutorial</h3>
+
  <% end %>
 
 </main>

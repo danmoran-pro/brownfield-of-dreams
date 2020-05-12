@@ -5,7 +5,9 @@ class Admin::TutorialsController < Admin::BaseController
 
   def create
     youtube = YoutubeService.new
-    playlist_videos = youtube.playlist_info(params['tutorial']['playlist_id'])
+    playlist = youtube.playlist_info(params['tutorial']['playlist_id'])
+    playlist_videos = playlist[:items]
+    playlist_nextpage_token = playlist[:nextPageToken]
     tutorial = Tutorial.create(grab_tutorial_params)
     if !playlist_videos.nil?
       playlist_videos.each do |video|
@@ -13,7 +15,9 @@ class Admin::TutorialsController < Admin::BaseController
         add_video(vid, tutorial)
       end
     end
+    add_more_pages(youtube, tutorial, playlist_nextpage_token)
     tutorial_saved?(tutorial)
+    require "pry"; binding.pry
     redirect_to admin_dashboard_path
   end
 
@@ -43,7 +47,18 @@ class Admin::TutorialsController < Admin::BaseController
 
   private
 
+  def add_more_pages(youtube, tutorial, playlist_nextpage_token)
+    playlist_videos = youtube.next_page(params['tutorial']['playlist_id'], playlist_nextpage_token)
+    until playlist_videos.nil?
+      playlist_videos.each do |video|
+        vid = youtube.video_info(video[:contentDetails][:videoId])
+        add_video(vid, tutorial)
+      end
+    end
+  end
+
   def grab_video_params(video)
+    require "pry"; binding.pry
     info_hash = video[:items].first[:snippet]
     vid_params = { title: info_hash[:title],
                    description: info_hash[:description],
