@@ -8,13 +8,15 @@ class Admin::TutorialsController < Admin::BaseController
     playlist = youtube.playlist_info(params['tutorial']['playlist_id'])
     playlist_videos = playlist[:items]
     tutorial = Tutorial.create(grab_tutorial_params)
-    add_video_info(playlist_videos)
-    add_more_pages(youtube, tutorial, playlist[:nextPageToken])
+    add_video_info(playlist_videos, youtube, tutorial)
+    if playlist.key?(:nextPageToken)
+      add_more_pages(youtube, tutorial, playlist[:nextPageToken])
+    end
     tutorial_saved?(tutorial)
     redirect_to admin_dashboard_path
   end
 
-  def add_video_info(playlist_videos)
+  def add_video_info(playlist_videos, youtube, tutorial)
     if !playlist_videos.nil?
       playlist_videos.each do |video|
         vid = youtube.video_info(video[:contentDetails][:videoId])
