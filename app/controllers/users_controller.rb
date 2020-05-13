@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    if !current_user.github_token.nil?
+    unless current_user.github_token.nil?
       github = GithubService.new(current_user.github_token)
       @user_repos = github.grab_repos
       @user_followers = github.grab_followers

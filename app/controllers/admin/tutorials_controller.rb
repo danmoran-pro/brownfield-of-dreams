@@ -17,7 +17,7 @@ class Admin::TutorialsController < Admin::BaseController
   end
 
   def add_video_info(playlist_videos, youtube, tutorial)
-    if !playlist_videos.nil?
+    unless playlist_videos.nil?
       playlist_videos.each do |video|
         vid = youtube.video_info(video[:contentDetails][:videoId])
         add_video(vid, tutorial)

@@ -5,4 +5,8 @@ class GithubUser
     @name = name
     @url = url
   end
+
+  def account?
+    User.find_by(username: @name)
+  end
 end

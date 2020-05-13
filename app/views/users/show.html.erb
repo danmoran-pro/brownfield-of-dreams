@@ -23,6 +23,18 @@
     <% end %>
   </section>
 
+<section class = "friends">
+  <h1>My Friends</h1>
+  <% if !current_user.friends.nil? %>
+      <%current_user.friends.each do |friend| %>
+      <ul>
+        <p> <%=friend.first_name%> <%=friend.last_name%> </p>
+      </ul>
+      <%end %>
+  <% else %>
+    <p> You haven't added any friends </p>
+  <% end %>
+  </section>
 
 <% if current_user.github_token %>
   <% if !@user_repos.nil?  %>
@@ -39,7 +51,12 @@
     <section class = "followers">
     <h2>Followers</h2>
     <% @user_followers.each do |follower| %>
+    <section class = 'follower' >
     <%= link_to "#{follower.name}", "#{follower.url}" %>
+     <% if follower.account? && !current_user.friend?(follower.name)%>
+        <%= button_to "Add Friend", "/users/#{follower.name}/friendships", method: :post %>
+      </section>
+      <% end %>
     <br>
     <% end %>
   </section>
@@ -49,7 +66,12 @@
     <section class = "following">
     <h2>Following</h2>
     <% @user_following.each do |following| %>
+    <section class = <%"#{following.name}" %> >
     <%= link_to "#{following.name}", "#{following.url}" %>
+    <% if following.account? && !current_user.friend?(following.name)%>
+       <%= button_to "Add Friend", "/users/#{following.name}/friendships", method: :post %>
+     </section>
+     <% end %>
     <br>
     <% end %>
     </section>
