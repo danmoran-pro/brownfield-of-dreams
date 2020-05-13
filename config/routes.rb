@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get '/get_started', to: 'get_started#show'
   get '/video', to: 'video#show'
 
+  get '/users/invite', to: 'invite#new'
+  post '/users/invite', to: 'invite#create'
   get '/users/:id', to: 'users#update'
   resources :users, only: [:new, :create, :edit]
 

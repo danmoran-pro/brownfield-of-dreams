@@ -8,6 +8,8 @@
     <% end %>
 
   <p><%= button_to  "Connect to GitHub", github_login_path %></p>
+  <p><%= button_to  "Send an Invite", "/users/invite", method: :get %></p>
+
 
 
   <%= button_to 'Log Out', logout_path, method: 'delete', class: "btn btn-primary mb1 bg-teal" %>

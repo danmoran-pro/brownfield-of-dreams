@@ -12,6 +12,13 @@ class GithubService
     end
   end
 
+  def invite_conn
+    Faraday.new('https://api.github.com/users/') do |req|
+      req.headers['Authorization'] = "token #{@github_token}"
+      req.adapter Faraday.default_adapter
+    end
+  end
+
   def grab_repos
     repos = conn.get('repos?page=1&per_page=5')
     json = JSON.parse(repos.body, symbolize_names: true)
@@ -40,5 +47,11 @@ class GithubService
       user_following << GithubUser.new(person[:login], person[:html_url])
     end
     user_following
+  end
+
+  def grab_email(username)
+    username = invite_conn.get(username)
+    json = JSON.parse(username.body, symbolize_names: true)
+    json[:email]
   end
 end

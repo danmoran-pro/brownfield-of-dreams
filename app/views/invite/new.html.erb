@@ -1,0 +1,13 @@
+<div class="email">
+  <section>
+    <%= form_for :invite, url: users_invite_path do |f| %>
+      <div>
+        <%= f.label :github %>
+        <%= f.text_field :github, class: "block col-12 field" %>
+      </div>
+      </div>
+      <%= f.submit 'Send Invite', class: "mt2 btn btn-primary mb1 bg-teal" %>
+    <% end %>
+  </section>
+
+</div>
