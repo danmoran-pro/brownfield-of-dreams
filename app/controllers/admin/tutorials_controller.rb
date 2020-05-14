@@ -8,7 +8,7 @@ class Admin::TutorialsController < Admin::BaseController
     playlist = youtube.playlist_info(params['tutorial']['playlist_id'])
     playlist_videos = playlist[:items]
     tutorial = Tutorial.create(grab_tutorial_params)
-    add_video_info(playlist_videos, youtube, tutorial)
+    add_video_info(playlist_videos, tutorial)
     if playlist.key?(:nextPageToken)
       add_more_pages(youtube, tutorial, playlist[:nextPageToken])
     end
@@ -16,11 +16,10 @@ class Admin::TutorialsController < Admin::BaseController
     redirect_to admin_dashboard_path
   end
 
-  def add_video_info(playlist_videos, youtube, tutorial)
+  def add_video_info(playlist_videos, tutorial)
     unless playlist_videos.nil?
       playlist_videos.each do |video|
-        vid = youtube.video_info(video[:contentDetails][:videoId])
-        add_video(vid, tutorial)
+        add_video(video, tutorial)
       end
     end
   end
@@ -54,20 +53,16 @@ class Admin::TutorialsController < Admin::BaseController
   def add_more_pages(youtube, tutorial, nextpage_token)
     id = params['tutorial']['playlist_id']
     playlist_videos = youtube.next_page(id, nextpage_token)
-    until playlist_videos.nil?
-      playlist_videos.each do |video|
-        vid = youtube.video_info(video[:contentDetails][:videoId])
-        add_video(vid, tutorial)
-      end
+    playlist_videos.each do |video|
+      add_video(video, tutorial)
     end
   end
 
   def grab_video_params(video)
-    info_hash = video[:items].first[:snippet]
-    vid_params = { title: info_hash[:title],
-                   description: info_hash[:description],
-                   video_id: video[:items].first[:id],
-                   thumbnail: info_hash[:thumbnails][:standard] }
+    vid_params = { title: video[:snippet][:title],
+                   description: video[:snippet][:description],
+                   video_id: video[:id],
+                   thumbnail: video[:snippet][:thumbnails][:standard] }
     vid_params
   end
 
