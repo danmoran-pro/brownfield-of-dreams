@@ -3,10 +3,11 @@ WebMock.allow_net_connect!
 
 describe 'As an admin' do
   it 'can add an entire youtube playlist' do
-    # json_response = File.read('spec/fixtures/youtube_playlist.json')
-    # stub_request(:get, 'https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&playlistId=PLLFBEGPiMBa5vYxUKkRJ1KpcQH4rL6v0m&key=AIzaSyDNardOv4hyEXZLPf0lf496lVMLxt4bFio').
-    #      to_return(status: 200, body: json_response, headers: {})
-    #
+#     json_response = File.read('spec/fixtures/youtube_playlist.json')
+#     stub_request(:get, 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLLFBEGPiMBa5vYxUKkRJ1KpcQH4rL6v0m&key=AIzaSyDNardOv4hyEXZLPf0lf496lVMLxt4bFio').
+# with
+#          to_return(status: 200, body: json_response, headers: {})
+
 
     admin = create(:user, role: 1)
 
